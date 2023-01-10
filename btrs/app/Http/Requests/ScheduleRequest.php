@@ -30,7 +30,7 @@ class ScheduleRequest extends FormRequest
             'date'=>'required',
             'time'=>'required',
             'from'=>'required',
-            'to'=>'required',
+            'to'=>'required'
         ];
     }
 }

@@ -24,7 +24,13 @@ class SeatRequest extends FormRequest
     public function rules()
     {
         return [
-            'seatNo'=>'required'
+            'seatNo'=>'required', 
+            'companyName'=>'required', 
+            'from' =>'required', 
+            'to' =>'required', 
+            'time' =>'required', 
+            'date' =>'required', 
+            'ticketPrice' =>'required'
         ];
     }
 }

@@ -43,7 +43,8 @@ class UserController extends Controller
         return view('Verify');
     }
 
-    function schedulesearchresults(ScheduleSearchResultsRequest $request){
+    function schedulesearchresults(Request $req){
+        $request= new ScheduleSearchResultsRequest($req->all());
 
         $details = DB::table('schedules')
         ->join('buses', 'schedules.bussNo', '=', 'buses.bussNo')
@@ -58,6 +59,11 @@ class UserController extends Controller
         $dateJourney = Carbon::parse($request->date);
 
         if ($dateToday->lessThanOrEqualTo($dateJourney)) {
+
+            foreach ($details as $det) {
+                $req->session()->put('bussNo',$det->bussNo);                 // Bus Number session
+            }        
+
           return view('ScheduleSearchResults',compact('details','dateJourney'));
         }
         else{
@@ -65,7 +71,7 @@ class UserController extends Controller
         }
     }
 
-    function sourcetodest(){
+    function sourcetodest(SignInRequest $request){
 
         $place = DB::table('schedules')
             ->select('from as dst');
@@ -137,7 +143,9 @@ class UserController extends Controller
     }
 
 
-    function signInVerify(SignInRequest $request){
+    function signInVerify(Request $req){
+
+        $request = new SignInRequest($req->all());
 
         $userCode = DB::table('end_users')
             ->select('userCode')
@@ -150,17 +158,60 @@ class UserController extends Controller
         ->where('systemCode', $userCode)
         ->value('pass');
 
-            if($pass == $request->pass){
-                return redirect('/sourcetodest');
+        
+        $userId = DB::table('end_users')
+            ->select('userId')
+            ->where('phone',$request->phone)
+            ->value('userId');
+
+    if($pass == $request->pass){
+                
+        $place = DB::table('schedules')
+        ->select('from as dst');
+
+        $district = DB::table('schedules')
+        ->select('to as dst')
+        ->union($place)
+        ->get();
+
+        $req->session()->put('userId',$userId);
+        $req->session()->put('phone',$request->phone);
+
+        
+        return view('SourceToDest',compact('district'));
+        //return redirect('/sourcetodest');
+                //return "<script>alert('".session('userId')."');</script>";
             }
-            else{
-                return redirect('/signin');
-           //return "<script>alert('".$pass."');</script>";
-            }
+     else{
+               // return redirect('/signin');
+           return "<script>alert('".$pass."');</script>";
+        }
     }
 
-    function selectSeat(SeatRequest $request){
+    function selectSeat(Request $request){
 
-        return "<script>alert('Seat No: ".$request->seatNo."');</script>";
+    $seatRequest = new SeatRequest($request->all()); // companyName from to time date ticketPrice
+    $seatNo=$seatRequest->seatNo;
+    $companyName=$seatRequest->companyName;
+    $from=$seatRequest->from;
+    $to=$seatRequest->to;
+    $time=$seatRequest->time;
+    $date=$seatRequest->date;
+    $ticketPrice=$seatRequest->ticketPrice;
+
+   $request->session()->put('seat',$seatNo);
+   $request->session()->put('ticketPrice',$ticketPrice);
+   $request->session()->put('amount',$ticketPrice*(1+1/100));
+   $request->session()->put('time',$time);
+   $request->session()->put('date',$date);
+
+
+
+
+
+
+
+    return view('PaymentEasycheckout',compact('seatNo', 'companyName', 'from', 'to', 'time', 'date', 'ticketPrice'));
+         //  return "<script>alert('".$seatNo. $phone."');</script>";
     }
 }

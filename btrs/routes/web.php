@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SslCommerzPaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +16,40 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('PaymentEasycheckout');
 });
+
+
+
+/////////////////////////////////////// SSLCOMMERZ Start ////////////////////////////////////////////////////////
+
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::get('/success_', [SslCommerzPaymentController::class, 'successPage']);
+Route::get('/fail_', [SslCommerzPaymentController::class, 'failurePage']);
+Route::get('/cancel_', [SslCommerzPaymentController::class, 'cancelPage']);
+
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+
+/////////////////////////////////////// SSLCOMMERZ END //////////////////////////////////////////////////////////
+
+/////////////////////////////////////// END_USER Start //////////////////////////////////////////////////////
 
 Route::post('seat',[UserController::class,'seatView'])->name('seat');
 Route::get('signup',[UserController::class,'signUp'])->name('signup');
 Route::get('signin',[UserController::class,'signIn'])->name('signin');
 Route::get('verify',[UserController::class,'verify'])->name('verify');
-Route::get('selectSeat',[UserController::class,'selectSeat'])->name('selectSeat');
+
+Route::post('selectSeat',[UserController::class,'selectSeat'])->name('selectSeat');
 
 Route::post('userverification',[UserController::class,'verification'])->name('userverification');
 Route::get('sourcetodest',[UserController::class,'sourcetodest'])->name('sourcetodest');

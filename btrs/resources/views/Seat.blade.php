@@ -69,9 +69,14 @@ $driver="btn-circle btn-xl button1";
     <td></td>
 </tr>
 
-<form method="GET" action="{{route('selectSeat')}}">
+<form method="POST" action="{{route('selectSeat')}}">
 @csrf
-
+<input type="text" name="companyName" hidden value="{{$companyName}}">
+<input type="text" name="from" hidden value="{{$from}}">
+<input type="text" name="to" hidden value="{{$to}}">
+<input type="text" name="time" hidden value="{{$time}}">
+<input type="text" name="date" hidden value="{{$date}}">
+<input type="text" name="ticketPrice" hidden value="{{$ticketPrice}}">
  <tr>
     <td align="left"><button class="{{$btnStyle}}" name="seatNo" value="A1">A1</button></td>
     <td align="left"><button class="{{$btnStyle}}" name="seatNo" value="A2">A2</button></td>

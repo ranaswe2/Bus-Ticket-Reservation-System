@@ -24,6 +24,7 @@
 
                         <form action="{{route('schedulesearchresults')}}" method="POST">
                             @csrf
+
                          <h2 class="form-title" align="center">বাস টিকেট রিজার্ভেশন সিস্টেমস</h2>
                             <div class="form-group">
                                 <table align="center">
