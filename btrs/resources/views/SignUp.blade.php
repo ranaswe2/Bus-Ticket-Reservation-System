@@ -15,7 +15,7 @@
 <body>
 
     <div align='center' style="padding-top: 50px;">
-        <h1>বাস টিকেট রিজার্ভেশন সিস্টেমস</h1>
+        <h1>Bus Ticket Reservation Systems Ltd</h1>
         </div>
     <div class="main">
 

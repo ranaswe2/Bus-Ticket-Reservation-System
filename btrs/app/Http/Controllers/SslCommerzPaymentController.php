@@ -24,6 +24,8 @@ class SslCommerzPaymentController extends Controller
     }
     public function successPage()
     {
+
+       // return "<script>alert('".$userId."');</script>";
         return view('PaymentSuccess');
     }
     public function failurePage()
@@ -152,10 +154,6 @@ class SslCommerzPaymentController extends Controller
         $post_data['value_c'] = "ref003";
         $post_data['value_d'] = "ref004";
 
-   //  	txn 	 	 	status 	 	
-
-
-
         #Before  going to initiate the payment order status need to update as Pending.
         $update_product = DB::table('orders')
             ->where('transaction_id', $post_data['tran_id'])
@@ -178,9 +176,12 @@ class SslCommerzPaymentController extends Controller
              'seat' =>  session('seat'),
              'ticketPrice' =>  session('ticketPrice'),
              'amount'=>  session('amount'),    // Including 1% service charge
+             'status'=> "-",
              'time' => session('time'),
              'journeyDate' => session('date')
              ]);
+
+
 
         $sslc = new SslCommerzNotification();
         # initiate(Transaction Data , false: Redirect to SSLCOMMERZ gateway/ true: Show all the Payement gateway here )
@@ -190,6 +191,9 @@ class SslCommerzPaymentController extends Controller
             print_r($payment_options);
             $payment_options = array();
         }
+    
+        
+        
 
     }
 
@@ -222,6 +226,7 @@ class SslCommerzPaymentController extends Controller
                     ->update(['status' => 'Processing']);
 
             //Return something 
+            return redirect('/success_');
 
             }
         } else if ($order_detials->status == 'Processing' || $order_detials->status == 'Complete') {
@@ -309,6 +314,7 @@ class SslCommerzPaymentController extends Controller
                         ->where('transaction_id', $tran_id)
                         ->update(['status' => 'Processing']);
 // something return here
+            return redirect('/success_');
                     
                 }
             } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
@@ -324,5 +330,27 @@ class SslCommerzPaymentController extends Controller
             return redirect('/fail_');
         }
     }
+
+function test(){
+    $booked_product = DB::table('books')
+    ->insert([
+     'userId' => session('userId'),
+     'txn' =>  "abc",
+     'bussNo' => session('bussNo'),
+     'seat' =>  session('seat'),
+     'ticketPrice' =>  session('ticketPrice'),
+     'amount'=>  session('amount'),    // Including 1% service charge
+     'time' => session('time'),
+     'journeyDate' => session('date')
+     ]);
+
+     if($booked_product==true){
+        echo "data saved to DB";
+     }
+     else{
+        echo "Joybangla";
+     }
+}
+
 
 }

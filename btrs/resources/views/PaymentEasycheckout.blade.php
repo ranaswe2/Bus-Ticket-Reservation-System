@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="SSLCommerz">
-    <title>Example - EasyCheckout (Popup) | SSLCommerz</title>
+    <title>www.btrs.com</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -33,7 +33,7 @@
     <div class="py-5 text-center">
         <h2>বাস টিকেট রিজার্ভেশন সিস্টেমস</h2>
 
-        <p class="lead">Read carefully and ensure that all information are correct before clicking the Pay Now button</p>
+        <p class="lead">Read carefully and ensure that all information are correct before clicking 'Pay Now' button</p>
     </div>
 
     <div class="row">

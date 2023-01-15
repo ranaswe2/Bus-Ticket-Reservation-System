@@ -179,12 +179,9 @@ class UserController extends Controller
 
         
         return view('SourceToDest',compact('district'));
-        //return redirect('/sourcetodest');
-                //return "<script>alert('".session('userId')."');</script>";
             }
      else{
-               // return redirect('/signin');
-           return "<script>alert('".$pass."');</script>";
+                return redirect('/signin');
         }
     }
 
@@ -206,12 +203,36 @@ class UserController extends Controller
    $request->session()->put('date',$date);
 
 
-
-
-
-
-
     return view('PaymentEasycheckout',compact('seatNo', 'companyName', 'from', 'to', 'time', 'date', 'ticketPrice'));
          //  return "<script>alert('".$seatNo. $phone."');</script>";
     }
+
+
+    function dashboard(){
+        
+        $user = DB::table('end_users')
+        ->select('userId','name','phone','created_at')
+        ->where('phone',session('phone'))
+        ->get();
+
+        $userId = DB::table('end_users')
+        ->select('userId')
+        ->where('phone',session('phone'))
+        ->value('userId');
+  
+        $booked= DB::table('books')
+        ->join('orders', 'books.txn', '=', 'orders.transaction_id')
+        ->join('buses', 'books.bussNo', '=', 'buses.bussNo')
+        ->join('schedules', 'books.bussNo', '=', 'schedules.bussNo')
+        ->join('companies', 'buses.companyId', '=', 'companies.companyId')
+        ->select('companies.name','schedules.from','schedules.to','books.time','books.journeyDate','books.bussNo','books.seat','books.ticketPrice','books.amount','books.txn')
+        ->where('books.userId', '=', $userId)
+        ->where('orders.status', '=', 'Processing')
+        #->where('schedules.bussNo', '=', 'books.bussNo')
+        ->get();
+
+       // return "<script>alert('".$userId."');</script>";
+        return view('Dashboard',compact('user','booked'));
+    }
+    
 }

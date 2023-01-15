@@ -14,6 +14,10 @@
 </head>
 <body>
 
+    <div align='center' style="padding-top: 50px;">
+        <h1>Bus Ticket Reservation Systems Ltd</h1>
+        </div>
+        
     <div class="main">
 
         <!-- Sing in  Form -->

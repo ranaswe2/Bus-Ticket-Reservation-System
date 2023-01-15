@@ -16,6 +16,7 @@
 
     <div class="main">
 
+        <h2 class="form-title" align="center">Bus Ticket Reservation Systems Ltd</h2>
         <!-- Sing in  Form -->
         <section>
             <div class="container">
@@ -25,18 +26,17 @@
                         <form action="{{route('schedulesearchresults')}}" method="POST">
                             @csrf
 
-                         <h2 class="form-title" align="center">বাস টিকেট রিজার্ভেশন সিস্টেমস</h2>
                             <div class="form-group">
                                 <table align="center">
                                     <tr>
-                                        <th align="left">কোথা থেকে যাবেন?</th>
+                                        <th align="left">From Where You Go?</th>
                                         <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                                        <th align="right">কোথায় যাবেন (গন্তব্য)?</th>
+                                        <th align="right">What is Your Destination?</th>
                                     </tr>
                                     <tr>
                                         <td align="left">
                                             <select name="from" id="from" required>
-                                                <option>সিলেক্ট</option>
+                                                <option>Select</option>
 
                                                 @foreach ($district as $dist)
                                                 <option value="{{$dist->dst}}">{{$dist->dst}}</option>
@@ -47,7 +47,7 @@
                                         <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                         <td align="right">
                                             <select name="to" id="to" required>
-                                                <option>সিলেক্ট</option>
+                                                <option>Select</option>
 
                                                 @foreach ($district as $dist)
                                                 <option value="{{$dist->dst}}">{{$dist->dst}}</option>
@@ -59,13 +59,15 @@
                                     <tr> <td></td><td></td> </tr>
                                     <tr> <td></td><td></td> </tr>
                                     <tr>
-                                        <td><b>ভ্রমণের তারিখ:</b></td>
+                                        <td><b>Date of Journey:</b></td>
                                         <td align="right"><input type="date" data-date="" data-date-format="YYYY-MM-DD" name="date" id="" required></td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Next >>"/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <strong><a align="center" href="{{url('/dashboard')}}">Or Go to Dashboard</a></strong>
                             </div>
                         </form>
 

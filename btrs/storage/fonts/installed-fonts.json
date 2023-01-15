@@ -1,0 +1,13 @@
+{
+    "roboto": {
+        "300_italic": "C:\\Users\\Acer\\OneDrive\\Desktop\\Bus-Ticket-Reservation-System\\btrs\\storage\\fonts\/roboto_300_italic_3d719d848a0b6b3f4f0918985ffd2db7",
+        "300": "C:\\Users\\Acer\\OneDrive\\Desktop\\Bus-Ticket-Reservation-System\\btrs\\storage\\fonts\/roboto_300_32acfcb296f555e063ebba2be7db9e2f",
+        "normal": "C:\\Users\\Acer\\OneDrive\\Desktop\\Bus-Ticket-Reservation-System\\btrs\\storage\\fonts\/roboto_normal_7bc701b343c10631f60048716b96e4f7",
+        "500": "C:\\Users\\Acer\\OneDrive\\Desktop\\Bus-Ticket-Reservation-System\\btrs\\storage\\fonts\/roboto_500_5774d6fb05eba3d096525f821dbe4137",
+        "bold": "C:\\Users\\Acer\\OneDrive\\Desktop\\Bus-Ticket-Reservation-System\\btrs\\storage\\fonts\/roboto_bold_8db5cb5d0586c1e891426d13097b1d04",
+        "900": "roboto_900_7bf41cacaff90e7097ddd49fb9296601"
+    },
+    "bangla": {
+        "normal": "bangla_normal_db2787c4fad7bf300e95f2d664a9e7d2"
+    }
+}
