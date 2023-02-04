@@ -70,13 +70,16 @@ The proposed system will have many features like the one discussed below:
 
 
 ## Admin Side
-![view](images/22home.png)
+![view](images/1.png)
 
 ### Administrator Registration
 ![view](images/20signup.png)
 
 ### Administrator log in 
 ![view](images/21signin.png)
+
+### Admin Home Page
+![view](images/22home.png)
 
 ### Daily Report
 ![view](images/23report.png)
