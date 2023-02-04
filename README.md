@@ -63,9 +63,6 @@ The proposed system will have many features like the one discussed below:
 ![view](images/11success.png)
 
 ### User Dashboard
-![view](images/.png)
-
-### User Dashboard
 ![view](images/12dashboard.png)
 
 ### Booking Details (Ticket.pdf File)
