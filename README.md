@@ -73,9 +73,31 @@ The proposed system will have many features like the one discussed below:
 
 
 ## Admin Side
+![view](images/22home.png)
+
 ### Administrator Registration
+![view](images/20signup.png)
+
 ### Administrator log in 
-### Admin Change 
-### Bus Schedule add and update
+![view](images/21signin.png)
+
+### Daily Report
+![view](images/23report.png)
+
 ### Add new Bus to service etc
+![view](images/24add.png)
+
+
+![view](images/25add.png)
+
+### Bus Schedule add and update
+![view](images/26schedule.png)
+
+![view](images/27schedule.png)
+
+### Admin Change 
+![view](images/28admin.png)
+
+![view](images/29admin.png)
+
 
