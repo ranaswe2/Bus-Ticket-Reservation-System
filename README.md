@@ -6,9 +6,17 @@ Online Bus Ticket Reservation System enables the customer to buy bus tickets, ma
 
 ![Logo](images/0logo.png)
 
-# Objectives
+# Technologies Used
+* Laravel 8
+* MySQL
+* SSLCommerz Payment Gateway
+* Muthofun  SMS API
+* DomPDF
+* XAMPP
 
-The main objectives of the Bus Ticket Reservation System include: <br>
+# Features
+
+The main features of the Bus Ticket Reservation System include: <br>
 
 -> Providing a web-based bus ticket buying function. <br>
 -> Customers can buy bus tickets through the online system and there is no need to queue up to buy bus tickets at the counter. <br>
@@ -20,7 +28,7 @@ The main objectives of the Bus Ticket Reservation System include: <br>
 -> The number of staff at the counter can be reduced after the online buying bus ticket system launch. <br>
 
 # Features
-The proposed system will have many features like the one discussed below:
+The system provides following user interfaces which cover above features:
 
 ## Home Page
 ![view](images/1.png)
