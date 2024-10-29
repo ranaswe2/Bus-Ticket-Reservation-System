@@ -20,10 +20,10 @@ $mobile = $phone;
 $message = $msg;
 $url = "http://smsportal.muthofun.com/smsapi";
 $data = [
-        "api_key" => "C2000880619ef28c6ad848.20482156",
+        "api_key" => "C2000mO9T428c6ad848.2001T956", // Set your api_key here
         "type" => "text",
         "contacts" => $mobile,
-        "senderid" => "8809601001944",
+        "senderid" => "8801930898989", // Set your senderid here
         "msg" => $message
         ];
 $ch = curl_init();
